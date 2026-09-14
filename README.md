@@ -50,6 +50,3 @@ src/
 └── index.css     # Global styles
 ```
 
-## About This Project
-
-This app was built incrementally, one small feature at a time (scaffold → render data → split columns → mark complete → add items → delete items → polish), as a hands-on exercise in planning and implementing a React app with AI coding assistants.
