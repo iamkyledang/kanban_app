@@ -1,24 +1,26 @@
 import { useEffect, useState } from 'react'
+import { generateClient } from 'aws-amplify/data'
 import './App.css'
-import sampleItems from './data.json'
+
+const client = generateClient()
 
 function App() {
   const [items, setItems] = useState([])
   const [newItemText, setNewItemText] = useState('')
 
   useEffect(() => {
-    setItems(sampleItems)
+    const sub = client.models.Todo.observeQuery().subscribe({
+      next: ({ items }) => setItems(items),
+    })
+    return () => sub.unsubscribe()
   }, [])
 
   const todoItems = items.filter((item) => item.done === false)
   const completedItems = items.filter((item) => item.done === true)
 
   const toggleItemDone = (id) => {
-    setItems((currentItems) =>
-      currentItems.map((item) =>
-        item.id === id ? { ...item, done: !item.done } : item,
-      ),
-    )
+    const item = items.find((item) => item.id === id)
+    client.models.Todo.update({ id, done: !item.done })
   }
 
   const addItem = () => {
@@ -28,17 +30,12 @@ function App() {
       return
     }
 
-    const nextId = Math.max(0, ...items.map((item) => item.id)) + 1
-
-    setItems((currentItems) => [
-      ...currentItems,
-      { id: nextId, text: trimmedText, done: false },
-    ])
+    client.models.Todo.create({ text: trimmedText, done: false })
     setNewItemText('')
   }
 
   const deleteItem = (id) => {
-    setItems((currentItems) => currentItems.filter((item) => item.id !== id))
+    client.models.Todo.delete({ id })
   }
 
   return (
