@@ -19,10 +19,10 @@ Check it out [live](https://main.d2bcw8jrrso8ao.amplifyapp.com/).
 - [React 19](https://react.dev/) — UI library, built with function components and hooks (`useState`, `useEffect`)
 - [Vite](https://vitejs.dev/) — dev server and build tool
 - [ESLint](https://eslint.org/) — linting for code quality
-- Plain CSS for styling (no external UI framework)
+- CSS - styling the website
 
-**Backend (AWS Amplify)**
-- [AWS Amplify](https://aws.amazon.com/amplify/) — backend-as-code framework connecting the app to AWS
+**Backend**
+- **AWS Amplify** — backend-as-code framework connecting the app to AWS
 - **Amazon DynamoDB** — stores the to-do items
 - **AWS AppSync** — GraphQL API the app talks to for reading/writing data
 - **Amazon Cognito** — identity pool powering guest access to the API
