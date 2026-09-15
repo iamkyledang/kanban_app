@@ -16,10 +16,10 @@ Check it out [live](https://main.d2bcw8jrrso8ao.amplifyapp.com/).
 ## Tech Stack
 
 **Frontend**
-- [React 19](https://react.dev/) — UI library, built with function components and hooks (`useState`, `useEffect`)
-- [Vite](https://vitejs.dev/) — dev server and build tool
-- [ESLint](https://eslint.org/) — linting for code quality
-- CSS - styling the website
+- **React 19** — UI library, built with function components and hooks (`useState`, `useEffect`)
+- **Vite** — dev server and build tool
+- **ESLint** — linting for code quality
+- **CSS** - styling the website
 
 **Backend**
 - **AWS Amplify** — backend-as-code framework connecting the app to AWS
